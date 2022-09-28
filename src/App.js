@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Suspense} from 'react'
+import ThreeScene from './components/ThreeScene';
+//import Sphere from './components/Sphere';
+import Earth from './components/Earth';
+import ISSModel from './components/ISS_Model';
+
+//threejs 
+import { OrbitControls, Stars } from '@react-three/drei';
+import useFetch from './useFetch';
+
 
 function App() {
+  let data = useFetch("http://api.open-notify.org/iss-now.json")
+  console.log(data)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ height: '100vh', overflow: 'hidden'}}>
+      <ThreeScene>
+        <color attach="background" args={['#161c24']}/>
+        {/*<Sphere color="#00ff00" position={[-1, 0, 0]}/>
+        <Sphere color="#ffff00" position={[1, 0, 0]}/>*/}
+        <Suspense fallback={null}>
+          <Earth position={[0, 0, 0]}/>
+          <ISSModel position={[0, 0, 5.5]}/>
+        </Suspense>
+        <ambientLight intensity={0.1} />
+        <pointLight color="white" intensity={1} position={[20, 20, 20]} />
+        <OrbitControls minDistance={7} maxDistance={50} enablePan={false}/>
+        <Stars count={20000} factor={1}/>
+      </ThreeScene>
     </div>
   );
 }

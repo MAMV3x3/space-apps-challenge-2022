@@ -1,0 +1,94 @@
+newmtl 15-000256-1-0
+Kd 0.001 0.001 0.001
+map_Kd Textures\15-000256-1-0_basecolor.png
+map_Bump Textures\15-000256-1-0_normal.png
+illum 2
+
+newmtl 31-256256256256-1-0
+Kd 1 1 1
+map_Kd null
+illum 2
+
+newmtl 15-256256256256-1-0
+Kd 1 1 1
+map_Kd Textures\15-256256256256-1-0_basecolor.png
+map_Bump Textures\15-256256256256-1-0_normal.png
+illum 2
+
+newmtl 14-256256256256-1-0
+Kd 1 1 1
+map_Kd Textures\14-256256256256-1-0_basecolor.png
+map_Bump Textures\14-256256256256-1-0_normal.png
+illum 2
+
+newmtl 31-2231570256-1-0
+Kd 0.871447 0.6126704 0
+map_Kd null
+illum 2
+
+newmtl 31-2561450256-1-0
+Kd 1 0.5657917 0
+map_Kd null
+illum 2
+
+newmtl 7-160160160256-1-0
+Kd 0.625 0.625 0.625
+illum 2
+
+newmtl 17-256256256256-1-0
+Kd 1 1 1
+map_Kd Textures\17-256256256256-1-0_basecolor.png
+map_Bump Textures\17-256256256256-1-0_normal.png
+illum 2
+
+newmtl 34-909090256-5.228753-0
+Kd 0.3514209 0.3514209 0.3514209
+map_Kd Textures\34-909090256-5.228753-0_basecolor.png
+map_Bump Textures\34-909090256-5.228753-0_normal.png
+illum 2
+
+newmtl 34-112790256-5.228753-0
+Kd 0.437145 0.3073346 0
+map_Kd Textures\34-112790256-5.228753-0_basecolor.png
+map_Bump Textures\34-112790256-5.228753-0_normal.png
+illum 2
+
+newmtl 31-000256-1-0
+Kd 0.001 0.001 0.001
+map_Kd null
+illum 2
+
+newmtl 34-909090256-8.711252-0
+Kd 0.3514209 0.3514209 0.3514209
+map_Kd Textures\34-909090256-8.711252-0_basecolor.png
+map_Bump Textures\34-909090256-8.711252-0_normal.png
+illum 2
+
+newmtl 7-14810548256-1-0
+Kd 0.5799852 0.4087379 0.1855954
+illum 2
+
+newmtl 34-1701260256-4.482441-0
+Kd 0.6657092 0.490721 0
+map_Kd Textures\34-1701260256-4.482441-0_basecolor.png
+map_Bump Textures\34-1701260256-4.482441-0_normal.png
+illum 2
+
+newmtl 12-256256256256-1-0
+Kd 1 1 1
+map_Kd Textures\12-256256256256-1-0_basecolor.png
+map_Bump Textures\12-256256256256-1-0_normal.png
+illum 2
+
+newmtl 16-000256-1-0
+Kd 0.001 0.001 0.001
+map_Kd Textures\16-000256-1-0_basecolor.png
+map_Bump Textures\16-000256-1-0_normal.png
+illum 2
+
+newmtl 34-656565256-5.228753-0
+Kd 0.2542836 0.2542836 0.2542836
+map_Kd Textures\34-656565256-5.228753-0_basecolor.png
+map_Bump Textures\34-656565256-5.228753-0_normal.png
+illum 2
+
