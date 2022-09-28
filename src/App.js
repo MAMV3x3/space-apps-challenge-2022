@@ -2,6 +2,7 @@ import React, {Suspense} from 'react'
 import ThreeScene from './components/ThreeScene';
 //import Sphere from './components/Sphere';
 import Earth from './components/Earth';
+import Atmosphere from './components/Atmosphere';
 import ISSModel from './components/ISS_Model';
 
 //threejs 
@@ -19,13 +20,14 @@ function App() {
         {/*<Sphere color="#00ff00" position={[-1, 0, 0]}/>
         <Sphere color="#ffff00" position={[1, 0, 0]}/>*/}
         <Suspense fallback={null}>
+          <Atmosphere />
           <Earth position={[0, 0, 0]}/>
           <ISSModel position={[0, 0, 5.5]}/>
         </Suspense>
         <ambientLight intensity={0.1} />
         <pointLight color="white" intensity={1} position={[20, 20, 20]} />
-        <OrbitControls minDistance={7} maxDistance={50} enablePan={false}/>
-        <Stars count={20000} factor={1}/>
+        <OrbitControls minDistance={8} maxDistance={50} enablePan={false}/>
+        <Stars count={20000} factor={2}/>
       </ThreeScene>
     </div>
   );

@@ -3,7 +3,7 @@ import React from 'react'
 import { Canvas } from '@react-three/fiber';
 
 const ThreeScene = ({ children }) => {
-  return <Canvas gl={{ antialias: true}}>{children}</Canvas>;
+  return <Canvas camera={{ position: [0, 0, 10]}} gl={{ antialias: true}}>{children}</Canvas>;
 }
 
 export default ThreeScene
