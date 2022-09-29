@@ -19,25 +19,32 @@ function App() {
   let x = 0;
   let y = 0;
   let z = h;
+
+  //Api call to get the current position of the ISS
   const [userData, setUserData] = useState({});
 
   const getCoordinates = async () => {
-    const response = await axios.get(apiURL);
+    const response = await axios({
+      method: 'get',
+      url: apiURL
+  })
     setUserData(response.data);
   };
-
+  
   useEffect(() => {
     getCoordinates();
   }, []);
 
+  getCoordinates();
+
   if(userData.iss_position != null){
     longitude = userData.iss_position.longitude;
     latitude = userData.iss_position.latitude;
-    console.log(userData.iss_position.longitude, userData.iss_position.latitude);
+    //console.log(userData.iss_position.longitude, userData.iss_position.latitude);
     x = h * Math.cos(longitude * Math.PI/180) * Math.cos(latitude * Math.PI/180);
     y = h * Math.sin(longitude * Math.PI/180) * Math.cos(latitude * Math.PI/180);
     z = h * Math.sin(latitude * Math.PI/180);
-    console.log(r, x, y, z);
+    //console.log(r, x, y, z);
     return (
       <div style={{ height: '100vh', overflow: 'hidden'}}>
           <ThreeScene cameraPos={[x, y , z]}>
@@ -49,7 +56,7 @@ function App() {
             </Suspense>
             <ambientLight intensity={0.1} />
             <pointLight color="white" intensity={1} position={[20, 0, 20]} />
-            <OrbitControls minDistance={7} maxDistance={50} enablePan={false}/>
+            <OrbitControls autoRotate autoRotateSpeed={0.1} minDistance={7} maxDistance={50} enablePan={false}/>
             <Stars count={20000} factor={2}/>
           </ThreeScene>
       </div>
