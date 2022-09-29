@@ -3,7 +3,6 @@ import React from 'react'
 
 import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-//import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import model from '../assets/ISS.glb'
 
 const ISS_Model = ({position}) => {
