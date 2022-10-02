@@ -18,6 +18,8 @@ import { OrbitControls, Stars } from '@react-three/drei';
 import * as THREE from 'three'
 import Satellite_Location_Points from './components/Satellite_Location_Points';
 
+import MainPage from './components/MainPage'
+
 //API URL
 const apiURL = "http://api.open-notify.org/iss-now.json";
 const celestrakAPI = "https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle";
@@ -168,75 +170,81 @@ function App() {
   //}
 
   //Check if the user has allowed the browser to get their location and the api call has returned a value
-  if(userData.iss_position != null && userLocation != null){
+  if(false){
+    if(userData.iss_position != null && userLocation != null){
 
-    //Get the current position of the ISS
-    longitude = userData.iss_position.longitude;
-    latitude = userData.iss_position.latitude;
-
-    //Convert the longitude and latitude of the ISS to cartesian coordinates
-    x = h * Math.cos(longitude * Math.PI/180) * Math.cos(latitude * Math.PI/180);
-    y = h * Math.sin(longitude * Math.PI/180) * Math.cos(latitude * Math.PI/180);
-    z = h * Math.sin(latitude * Math.PI/180);
-    
-    //Project the ISS position on the orbit
-    points.push(new THREE.Vector3( x, y, z));
-
-    //Convert the longitude and latitude of the User to cartesian coordinates
-    x_U = (r + 0.04) * Math.cos(userLocation.lon * Math.PI/180) * Math.cos(userLocation.lat * Math.PI/180);
-    y_U = (r + 0.04) * Math.sin(userLocation.lon * Math.PI/180) * Math.cos(userLocation.lat * Math.PI/180);
-    z_U = (r + 0.04) * Math.sin(userLocation.lat * Math.PI/180);
-    vector[0] = new THREE.Vector3(x_U, y_U, z_U);
-    vector[1] = new THREE.Vector3(x, y, z);
-
-    //Get the current position of the Sun
-    let date = new Date();
-    let times = SunCalc.getPosition(date, userLocation.lon, userLocation.lat);
-    //console.log(times.azimuth, times.altitude);
-    azimuth = times.azimuth + 23*Math.PI/180;
-    distance = times.altitude + 23*Math.PI/180;
-    //let dist = (100) * Math.cos(distance)
-
-    //Convert the longitude and latitude of the Sun to cartesian coordinates
-    x_S = (1000) * Math.cos(azimuth) * Math.cos(distance);
-    y_S = (1000) * Math.sin(azimuth) * Math.cos(distance);
-    z_S = (1000) * Math.sin(distance);
-    //console.log(x_S, y_S, z_S);
-
-    //Check if the sun already set
-    /*if(x_S < 0 && y_S > 0){
-      x_S = x_S * -1;
-      y_S = y_S * -1;
-    } 
-    else if(x_S > 0 && y_S > 0){
-      x_S = x_S * -1;
-      y_S = y_S * -1;
-    }*/
-    //console.log('NEW:', x_S, y_S, z_S);
-
-    return (
-      <div style={{ height: '100vh', overflow: 'hidden'}}>
-          <ThreeScene cameraPos={[x, y, z]}>
-            <color attach="background" args={['#000']}/>
-            <Suspense fallback={null}>
-              <Atmosphere radius={r}/>
-              <Earth radius={r}/>
-              <ISSModel sun_coords={[-x_S, -y_S, z_S]} position={[x, y, z]}/>
-              <Icon_Pin position={[x_U, y_U, z_U]}/>
-            </Suspense>
-            <Orbit_Points points={points}/>
-            {/*<Track_Line points={vector}/>*/}
-            <ambientLight intensity={0.1} />
-            <Satellite_Location_Points points={satellites}/>
-            <pointLight color="white" intensity={0.8} position={[-x_S, -y_S, -z_S]} />
-            <OrbitControls autorotate autoRotateSpeed={0.1} minDistance={7} maxDistance={50} enablePan={false}/>
-            <Stars count={20000} factor={2}/>
-          </ThreeScene>
-      </div>
-    );
+      //Get the current position of the ISS
+      longitude = userData.iss_position.longitude;
+      latitude = userData.iss_position.latitude;
+  
+      //Convert the longitude and latitude of the ISS to cartesian coordinates
+      x = h * Math.cos(longitude * Math.PI/180) * Math.cos(latitude * Math.PI/180);
+      y = h * Math.sin(longitude * Math.PI/180) * Math.cos(latitude * Math.PI/180);
+      z = h * Math.sin(latitude * Math.PI/180);
+      
+      //Project the ISS position on the orbit
+      points.push(new THREE.Vector3( x, y, z));
+  
+      //Convert the longitude and latitude of the User to cartesian coordinates
+      x_U = (r + 0.04) * Math.cos(userLocation.lon * Math.PI/180) * Math.cos(userLocation.lat * Math.PI/180);
+      y_U = (r + 0.04) * Math.sin(userLocation.lon * Math.PI/180) * Math.cos(userLocation.lat * Math.PI/180);
+      z_U = (r + 0.04) * Math.sin(userLocation.lat * Math.PI/180);
+      vector[0] = new THREE.Vector3(x_U, y_U, z_U);
+      vector[1] = new THREE.Vector3(x, y, z);
+  
+      //Get the current position of the Sun
+      let date = new Date();
+      let times = SunCalc.getPosition(date, userLocation.lon, userLocation.lat);
+      //console.log(times.azimuth, times.altitude);
+      azimuth = times.azimuth + 23*Math.PI/180;
+      distance = times.altitude + 23*Math.PI/180;
+      //let dist = (100) * Math.cos(distance)
+  
+      //Convert the longitude and latitude of the Sun to cartesian coordinates
+      x_S = (1000) * Math.cos(azimuth) * Math.cos(distance);
+      y_S = (1000) * Math.sin(azimuth) * Math.cos(distance);
+      z_S = (1000) * Math.sin(distance);
+      //console.log(x_S, y_S, z_S);
+  
+      //Check if the sun already set
+      /*if(x_S < 0 && y_S > 0){
+        x_S = x_S * -1;
+        y_S = y_S * -1;
+      } 
+      else if(x_S > 0 && y_S > 0){
+        x_S = x_S * -1;
+        y_S = y_S * -1;
+      }*/
+      //console.log('NEW:', x_S, y_S, z_S);
+  
+      return (
+        <div style={{ height: '100vh', overflow: 'hidden'}}>
+            <ThreeScene cameraPos={[x, y, z]}>
+              <color attach="background" args={['#000']}/>
+              <Suspense fallback={null}>
+                <Atmosphere radius={r}/>
+                <Earth radius={r}/>
+                <ISSModel sun_coords={[-x_S, -y_S, z_S]} position={[x, y, z]}/>
+                <Icon_Pin position={[x_U, y_U, z_U]}/>
+                <Satellite_Location_Points points={satellites}/>
+              </Suspense>
+              <Orbit_Points points={points}/>
+              {/*<Track_Line points={vector}/>*/}
+              <ambientLight intensity={0.1} />
+              <pointLight color="white" intensity={0.8} position={[-x_S, -y_S, -z_S]} />
+              <OrbitControls autorotate autoRotateSpeed={0.1} minDistance={7} maxDistance={50} enablePan={false}/>
+              <Stars count={20000} factor={2}/>
+            </ThreeScene>
+        </div>
+      );
+    } else{
+      return (
+        <div id="loader"></div>
+      );
+    }
   } else{
     return (
-      <div id="loader"></div>
+      <MainPage/>
     );
   }
 
