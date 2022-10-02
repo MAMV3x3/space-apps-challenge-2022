@@ -12,6 +12,15 @@ function MainPage({state}) {
               <span className ='dist'>▫️</span>
               <span className = 'dist teamName'>Dagon</span>
             </span>
+            <div className='features'>
+              <h4>Features:</h4>
+              <h5>Track International Space Station in 3D space,</h5> 
+              <h5>Map and track satellites and space debris in 3D space,</h5>
+              <h5>Dynamic lighting according to real Sun position,</h5>
+              <h5>International Space Station 3D model's solar panels always point to Sun direction</h5>
+              <h5>Geolocate user and predict overhead passes</h5>
+              <h5>Project ISS movement orbit and make predictions about collisions</h5>
+            </div>
           </div>
           <div className='primary-button' onClick={state}>
             <h3>Launch App</h3>
@@ -59,8 +68,18 @@ function MainPage({state}) {
           <nav className='colaborator'>
             <h1>About Us</h1>
             <h2>We are a group, conformated of students that search new opportunities to develop our knowledge and take advantage of the events to learn something new.</h2>
-            <img id='img2' src='https://cdn.discordapp.com/attachments/716441619661979678/1026054021896740884/Colorway2-Color_White.png'/>
-            <img id='img3' src='https://media.discordapp.net/attachments/716441619661979678/1026004831212687431/LFN_Dagon.png?width=1084&height=670'/>
+            <div className='developers'>
+              <h2>Developed by</h2>
+              <h3 >Ines Alejandro Garcia Mosqueda</h3>
+              <h3>Miguel Angel Mirelez Vazquez</h3>
+              <h3>Alan Sadot Rivera Calderon</h3>
+              <h3>Cristian Abraham Medina Jiménez</h3>
+              <h3>Jonathan Antonio Vallejo Pérez</h3>
+            </div>
+            <div className='collaborators'>
+              <img id='img2' src='https://cdn.discordapp.com/attachments/716441619661979678/1026054021896740884/Colorway2-Color_White.png'/>
+              <img id='img3' src='https://media.discordapp.net/attachments/716441619661979678/1026004831212687431/LFN_Dagon.png?width=1084&height=670'/>
+            </div>
           </nav>
         </footer>
       </body>

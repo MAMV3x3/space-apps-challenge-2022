@@ -158,13 +158,14 @@ body{
 
 #img2, #img3{
     height: 100px;
+    margin: 25px;
 }
 
 footer{
     display: flex;
     align-content: center;
     justify-content: center;
-    height: 400px;
+    height: 500px;
     width: 100%;
     background-color: rgb(17, 29, 58);
 }
@@ -174,5 +175,28 @@ footer{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-around;
+}
+
+.features{
+    margin-top: 30px;
+    justify-content: justify;
+    align-items: center;
+    text-align: center;
+}
+
+.features h5{
+    padding: 5px;
+    font-weight: light;
+    font-size: small;
+}
+
+.developers h3{
+    font-size: small;
+    cursor: pointer;
+}
+
+.collaborators{
+    display: flex;
     justify-content: space-around;
 }
