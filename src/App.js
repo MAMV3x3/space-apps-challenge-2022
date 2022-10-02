@@ -65,13 +65,13 @@ const sat = ()=> {
 }
 }
 
-function Child({handleClick}){
+/*function Child({handleClick}){
   return(
     <div className="MainPage">
       <button onClick={handleClick}>Click me</button>
     </div>
   )
-}
+}*/
 
 
 //MAIN APP
@@ -80,6 +80,7 @@ function App() {
 
   const handleClick = () => {
     MainPageRender = true;
+    console.log(MainPageRender);
   }
 
   //State
