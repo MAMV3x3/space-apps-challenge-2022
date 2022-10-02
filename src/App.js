@@ -16,6 +16,7 @@ import { twoline2satrec, propagate, gstime, eciToGeodetic } from 'satellite.js';
 //Threejs 
 import { OrbitControls, Stars } from '@react-three/drei';
 import * as THREE from 'three'
+import Satellite_Location_Points from './components/Satellite_Location_Points';
 
 //API URL
 const apiURL = "http://api.open-notify.org/iss-now.json";
@@ -34,8 +35,10 @@ let apiCalled = false;
 let dataprinted = false;
 
 const sat = ()=> {
+  if(satellites.length === 0){
   //Iterate on the list of tracked satellites
-  for (let i = 0; i < satrecList.length/100; i++) {
+  console.log(satrecList);
+  for (let i = 0; i < satrecList.length; i++) {
   //Get current time
   let date = new Date()
   //Get position and velocity of the satellite
@@ -45,13 +48,18 @@ const sat = ()=> {
   //Transform from eci to geodetic coordinates (latitude, longitude and altitude)
   const position = eciToGeodetic(positionAndVelocity.position, gmst);
   //Print the geodesic coordinates
-  console.log(position.height + " " + position.latitude + " " + position.longitude);
-  satellites.push([position.latitude, position.longitude, position.height]);
+  //console.log(position.height + " " + position.latitude + " " + position.longitude);
+  let x = (position.height/1000 + h) * Math.cos(position.longitude) * Math.cos(position.latitude);
+  let y = (position.height/1000 + h) * Math.sin(position.longitude) * Math.cos(position.latitude);
+  let z = (position.height/1000 + h) * Math.sin(position.latitude);
+  satellites.push([x, y, z]);
+  console.log(satellites);
   }
   catch(e){
     //console.log(e);
   }
   }
+}
 }
 
 
@@ -98,13 +106,13 @@ function App() {
   //Get the current position of the ISS for the first time
   useEffect(() => {
     getCoordinates();
-    //getCoordinatesStellites();
+    getCoordinatesStellites();
   }, []);
 
   //console.log(satelliteData);
 
   //Check if the api call has returned a value
-  if(satelliteData != null){
+  if(satrecList.length===0){
     let recordSatellite = satelliteData;
     //Split the data in lines
     recordSatellite = recordSatellite.toString().split('\r\n');
@@ -119,9 +127,10 @@ function App() {
       );
       //Add the satellite to the list
       satrecList.push(satrec);
+      console.log(satrecList);
     }
   }
-  
+  sat();
   //Update the position of the ISS in real time and update the position of the satellites respect time
   getCoordinates();
   if(!apiCalled && satelliteData != null){
@@ -218,6 +227,7 @@ function App() {
             <Orbit_Points points={points}/>
             {/*<Track_Line points={vector}/>*/}
             <ambientLight intensity={0.1} />
+            <Satellite_Location_Points points={satellites}/>
             <pointLight color="white" intensity={0.8} position={[-x_S, -y_S, -z_S]} />
             <OrbitControls autorotate autoRotateSpeed={0.1} minDistance={7} maxDistance={50} enablePan={false}/>
             <Stars count={20000} factor={2}/>
