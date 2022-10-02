@@ -26,13 +26,16 @@ const r = 5;
 const h = r + 0.5;
 const points = [];
 const vector = [];
+const satellites = [];
 
 //List of data for satellite coordinates
 let satrecList = [];
+let apiCalled = false;
+let dataprinted = false;
 
 const sat = ()=> {
   //Iterate on the list of tracked satellites
-  for (let i = 0; i < satrecList.length; i++) {
+  for (let i = 0; i < satrecList.length/100; i++) {
   //Get current time
   let date = new Date()
   //Get position and velocity of the satellite
@@ -42,10 +45,11 @@ const sat = ()=> {
   //Transform from eci to geodetic coordinates (latitude, longitude and altitude)
   const position = eciToGeodetic(positionAndVelocity.position, gmst);
   //Print the geodesic coordinates
-  //console.log(position.height + " " + position.latitude + " " + position.longitude);
+  console.log(position.height + " " + position.latitude + " " + position.longitude);
+  satellites.push([position.latitude, position.longitude, position.height]);
   }
   catch(e){
-    console.log(e);
+    //console.log(e);
   }
   }
 }
@@ -94,8 +98,10 @@ function App() {
   //Get the current position of the ISS for the first time
   useEffect(() => {
     getCoordinates();
-    getCoordinatesStellites();
+    //getCoordinatesStellites();
   }, []);
+
+  //console.log(satelliteData);
 
   //Check if the api call has returned a value
   if(satelliteData != null){
@@ -118,7 +124,17 @@ function App() {
   
   //Update the position of the ISS in real time and update the position of the satellites respect time
   getCoordinates();
-  //sat();
+  if(!apiCalled && satelliteData != null){
+    //sat();
+    apiCalled = true;
+    console.log("done")
+  }
+
+  if(!dataprinted && apiCalled){
+    console.log(satellites);
+    dataprinted = true;
+  }
+
 
   //let vector = [];
 
@@ -166,16 +182,16 @@ function App() {
 
     //Get the current position of the Sun
     let date = new Date();
-    let times = SunCalc.getPosition(date, 90, 0);
-    console.log(times.azimuth, times.altitude);
-    azimuth = times.azimuth * (100);
-    distance = times.altitude * (100);
+    let times = SunCalc.getPosition(date, userLocation.lon, userLocation.lat);
+    //console.log(times.azimuth, times.altitude);
+    azimuth = times.azimuth + 23*Math.PI/180;
+    distance = times.altitude + 23*Math.PI/180;
     //let dist = (100) * Math.cos(distance)
 
     //Convert the longitude and latitude of the Sun to cartesian coordinates
-    x_S = (100) * Math.cos(azimuth) * Math.sin(distance);
-    y_S = (100) * Math.cos(azimuth) * Math.cos(distance);
-    z_S = (100) * Math.sin(distance);
+    x_S = (1000) * Math.cos(azimuth) * Math.cos(distance);
+    y_S = (1000) * Math.sin(azimuth) * Math.cos(distance);
+    z_S = (1000) * Math.sin(distance);
     //console.log(x_S, y_S, z_S);
 
     //Check if the sun already set
@@ -196,13 +212,13 @@ function App() {
             <Suspense fallback={null}>
               <Atmosphere radius={r}/>
               <Earth radius={r}/>
-              <ISSModel sun_coords={[x_S, y_S, -z_S]} position={[x, y, z]}/>
+              <ISSModel sun_coords={[-x_S, -y_S, z_S]} position={[x, y, z]}/>
               <Icon_Pin position={[x_U, y_U, z_U]}/>
             </Suspense>
             <Orbit_Points points={points}/>
             {/*<Track_Line points={vector}/>*/}
             <ambientLight intensity={0.1} />
-            <pointLight color="white" intensity={1} position={[x_S, y_S, z_S]} />
+            <pointLight color="white" intensity={0.8} position={[-x_S, -y_S, -z_S]} />
             <OrbitControls autorotate autoRotateSpeed={0.1} minDistance={7} maxDistance={50} enablePan={false}/>
             <Stars count={20000} factor={2}/>
           </ThreeScene>
