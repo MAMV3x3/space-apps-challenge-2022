@@ -35,6 +35,7 @@ const satellites = [];
 let satrecList = [];
 let apiCalled = false;
 let dataprinted = false;
+let MainPageRender = false;
 
 const sat = ()=> {
   if(satellites.length === 0){
@@ -64,9 +65,23 @@ const sat = ()=> {
 }
 }
 
+function Child({handleClick}){
+  return(
+    <div className="MainPage">
+      <button onClick={handleClick}>Click me</button>
+    </div>
+  )
+}
+
 
 //MAIN APP
 function App() {
+  //const [count, setCount] = useState(0);
+
+  const handleClick = () => {
+    MainPageRender = true;
+  }
+
   //State
   const userLocation = Geo_Locate_User();
   let longitude = 0;
@@ -169,8 +184,9 @@ function App() {
   // pointGroup.add(point);
   //}
 
+
   //Check if the user has allowed the browser to get their location and the api call has returned a value
-  if(false){
+  if(MainPageRender){
     if(userData.iss_position != null && userLocation != null){
 
       //Get the current position of the ISS
@@ -244,7 +260,7 @@ function App() {
     }
   } else{
     return (
-      <MainPage/>
+      <MainPage state={handleClick}/>
     );
   }
 

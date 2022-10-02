@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/MainPage.css';
 
-function MainPage() {
+function MainPage({state}) {
   return (
     <div>
       <body>
@@ -13,7 +13,7 @@ function MainPage() {
               <span className = 'dist teamName'>Dagon</span>
             </span>
           </div>
-          <div className='primary-button'>
+          <div className='primary-button' onClick={state}>
             <h3>Launch App</h3>
           </div>
         </div>
