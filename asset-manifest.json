@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/space-apps-challenge-2022/static/css/main.04b95a63.css",
-    "main.js": "/space-apps-challenge-2022/static/js/main.195bae11.js",
+    "main.js": "/space-apps-challenge-2022/static/js/main.95332d90.js",
     "static/media/map_texture.jpg": "/space-apps-challenge-2022/static/media/map_texture.54672c1f3ba121d80470.jpg",
     "static/media/ISS_90.glb": "/space-apps-challenge-2022/static/media/ISS_90.d1117379a9b5c9619430.glb",
     "static/media/Capturamediotrack.JPG": "/space-apps-challenge-2022/static/media/Capturamediotrack.bad8e7c640da6fbfa931.JPG",
@@ -10,10 +10,10 @@
     "static/media/Icon_Pin.glb": "/space-apps-challenge-2022/static/media/Icon_Pin.1d96b66ea12a1b85d12c.glb",
     "index.html": "/space-apps-challenge-2022/index.html",
     "main.04b95a63.css.map": "/space-apps-challenge-2022/static/css/main.04b95a63.css.map",
-    "main.195bae11.js.map": "/space-apps-challenge-2022/static/js/main.195bae11.js.map"
+    "main.95332d90.js.map": "/space-apps-challenge-2022/static/js/main.95332d90.js.map"
   },
   "entrypoints": [
     "static/css/main.04b95a63.css",
-    "static/js/main.195bae11.js"
+    "static/js/main.95332d90.js"
   ]
 }
