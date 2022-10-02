@@ -39,6 +39,8 @@ This probability will for sure be influenced by the wider of the orbit and the v
 
 **Space Agency Data 🚀** <br><br>
 
-For computational rendering of satellites and debris, we used TLE data from GOES, and NORAD using Celestrak.
+For computational rendering of satellites and debris, we used TLE data from GOES, and NORAD using Celestrak. <br><br>
+
+*Made for NASA space apps challenge 2022*
 
 
