@@ -3,10 +3,10 @@
 **High-Level Project Summary 💻** <br><br>
 The ISS tracker and collision avoidance web app by Dagon, is an open-source web app, where the user can know the actual location of the International Space Station, check for real coalitions alerts with space trash and space debris, satellites and space bodies detected and located with the Satellite.js library, in a 3D space, which simulates the world, its atmosphere,  the International Space Station and the illumination of the sun, all this at real time with real data. <br><br>
 
-** Demo video
+**Demo video** <br><br>
 https://www.youtube.com/watch?v=zma0hUkrPUk
 
-**Shots from the app
+**Shots from the app** <br><br>
 ![image](https://user-images.githubusercontent.com/84602829/212249521-765e6854-8e4c-41c8-b9a8-9e28f1c2955f.png)
 
 ![image](https://user-images.githubusercontent.com/84602829/212249594-fe40565e-a4d1-4d78-b73a-92d002c901d0.png)
