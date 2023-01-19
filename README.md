@@ -3,6 +3,17 @@
 **High-Level Project Summary 💻** <br><br>
 The ISS tracker and collision avoidance web app by Dagon, is an open-source web app, where the user can know the actual location of the International Space Station, check for real coalitions alerts with space trash and space debris, satellites and space bodies detected and located with the Satellite.js library, in a 3D space, which simulates the world, its atmosphere,  the International Space Station and the illumination of the sun, all this at real time with real data. <br><br>
 
+**Demo video** <br><br>
+https://www.youtube.com/watch?v=zma0hUkrPUk
+
+**Shots from the app** <br><br>
+![image](https://user-images.githubusercontent.com/84602829/212249521-765e6854-8e4c-41c8-b9a8-9e28f1c2955f.png)
+
+![image](https://user-images.githubusercontent.com/84602829/212249594-fe40565e-a4d1-4d78-b73a-92d002c901d0.png)
+
+![image](https://user-images.githubusercontent.com/84602829/212249631-43499c4a-32dd-4104-9891-be8bd4356b9a.png)
+
+
 **Detailed Project Description 🤖** <br><br>
 Our proposal includes development of the ISS tracking and mapping in a 3D space, as well as a collision prediction estimate. Our tracking system was developed as a web application written in JavaScript with Node and React and Three.js. We implemented a rendered for Three.js called React-three-fiber which allows us to load 3D models of the ISS itself, the nearby satellites, and all the space trash data into a $ℝ^3$ space. <br>
 The application relies on the TLE data provided from Celestrak (considering NORAD and NASA's GOES data) and an API provided from Open Notify which provides us the ISS position in real time. <br>
