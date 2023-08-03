@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 //geolocate user
-function Geo_Locate_User(){
+function GeoLocateUser(){
     const [location, setLocation] = useState(null);
 
     useEffect(() => {
@@ -23,4 +23,4 @@ function Geo_Locate_User(){
     return location;
 }
 
-export default Geo_Locate_User;
+export default GeoLocateUser;

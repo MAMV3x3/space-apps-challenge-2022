@@ -4,7 +4,7 @@ import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import model from '../assets/Icon_Pin.glb'
 
-const Icon_Pin = ({position}) => {
+const IconPin = ({position}) => {
   const object = useLoader(GLTFLoader, model)
   object.scene.lookAt(0, 0, 0);
   return (
@@ -15,4 +15,4 @@ const Icon_Pin = ({position}) => {
   );
 };
 
-export default Icon_Pin
+export default IconPin

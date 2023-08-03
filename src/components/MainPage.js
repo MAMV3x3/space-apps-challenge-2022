@@ -53,7 +53,7 @@ function MainPage({state}) {
               <h2>With this proyect, we would like to show to the visitants to our web site, a new window of opportunities areas, where they can learn and then colaborate in investigations or applications of all the new knowledge which we have in our hands day to day.</h2>
             </div>
             <div className='division__section-frame-menor'>
-              <img id='img1' src='https://media.discordapp.net/attachments/1026061843279646800/1026061895909781554/iss-png--896.png'/>
+              <img id='img1' src='https://media.discordapp.net/attachments/1026061843279646800/1026061895909781554/iss-png--896.png' alt='ISS'/>
             </div>
           </div>
         </div>
@@ -77,8 +77,8 @@ function MainPage({state}) {
               <h3>Jonathan Antonio Vallejo Pérez</h3>
             </div>
             <div className='collaborators'>
-              <img id='img2' src='https://cdn.discordapp.com/attachments/716441619661979678/1026054021896740884/Colorway2-Color_White.png'/>
-              <img id='img3' src='https://media.discordapp.net/attachments/716441619661979678/1026004831212687431/LFN_Dagon.png?width=1084&height=670'/>
+              <img id='img2' src='https://cdn.discordapp.com/attachments/716441619661979678/1026054021896740884/Colorway2-Color_White.png' alt='Sponsors'/>
+              <img id='img3' src='https://media.discordapp.net/attachments/716441619661979678/1026004831212687431/LFN_Dagon.png?width=1084&height=670' alt='Main Logo'/>
             </div>
           </nav>
         </footer>

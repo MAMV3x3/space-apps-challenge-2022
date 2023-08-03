@@ -5,18 +5,18 @@ import ThreeScene from './components/ThreeScene';
 import Earth from './components/Earth';
 import Atmosphere from './components/Atmosphere';
 import ISSModel from './components/ISS_Model';
-import Icon_Pin from './components/Icon_Pin';
+import IconPin from './components/IconPin';
 import axios from 'axios';
 import SunCalc from 'suncalc';
-import Geo_Locate_User from './components/Geo_Locate_User';
-import Orbit_Points from './components/Orbit_Points';
+import GeoLocateUser from './components/GeoLocateUser';
+import OrbitPoints from './components/OrbitPoints';
 //Import Track_Line from './components/Track_Line';
 //Satellite.js
 import { twoline2satrec, propagate, gstime, eciToGeodetic } from 'satellite.js';
 //Threejs 
 import { OrbitControls, Stars } from '@react-three/drei';
 import * as THREE from 'three'
-import Satellite_Location_Points from './components/Satellite_Location_Points';
+import SatelliteLocationPoints from './components/SatelliteLocationPoints';
 
 import MainPage from './components/MainPage'
 
@@ -84,7 +84,7 @@ function App() {
   }
 
   //State
-  const userLocation = Geo_Locate_User();
+  const userLocation = GeoLocateUser();
   let longitude = 0;
   let latitude = 0;
   let azimuth = 0;
@@ -242,10 +242,10 @@ function App() {
                 <Atmosphere radius={r}/>
                 <Earth radius={r}/>
                 <ISSModel sun_coords={[-x_S, -y_S, z_S]} position={[x, y, z]}/>
-                <Icon_Pin position={[x_U, y_U, z_U]}/>
-                <Satellite_Location_Points points={satellites}/>
+                <IconPin position={[x_U, y_U, z_U]}/>
+                <SatelliteLocationPoints points={satellites}/>
               </Suspense>
-              <Orbit_Points points={points}/>
+              <OrbitPoints points={points}/>
               {/*<Track_Line points={vector}/>*/}
               <ambientLight intensity={0.1} />
               <pointLight color="white" intensity={0.8} position={[-x_S, -y_S, -z_S]} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import * as THREE from 'three'
 
-function Track_Line({points}) {
+function TrackLine({points}) {
   const ISSOrbitGeom = new THREE.BufferGeometry().setFromPoints(points);
   const ISSOrbitMat = new THREE.LineDashedMaterial( {
 	color: 0x0000ff,
@@ -16,4 +16,4 @@ function Track_Line({points}) {
   )
 }
 
-export default Track_Line
+export default TrackLine

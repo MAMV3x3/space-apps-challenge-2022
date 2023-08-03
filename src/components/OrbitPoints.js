@@ -1,7 +1,7 @@
 import React from 'react'
 import * as THREE from 'three'
 
-function Orbit_Points({points}) {
+function OrbitPoints({points}) {
   const ISSOrbitGeom = new THREE.BufferGeometry().setFromPoints(points);
   const ISSOrbitMat = new THREE.LineBasicMaterial( {
 	color: 0xe00000,
@@ -15,4 +15,4 @@ function Orbit_Points({points}) {
   )
 }
 
-export default Orbit_Points
+export default OrbitPoints

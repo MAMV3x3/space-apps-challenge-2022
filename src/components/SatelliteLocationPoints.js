@@ -1,7 +1,7 @@
 import React from 'react'
 import * as THREE from 'three'
 
-const Satellite_Location_Points = ({points}) => {
+const SatelliteLocationPoints = ({points}) => {
     /*var dotGeometry = new THREE.BufferGeometry();
     var dotMaterial = new THREE.PointsMaterial( { size: 1, sizeAttenuation: false } );*/
     const pointGeom = new THREE.SphereGeometry( 0.008, 32, 32 ),
@@ -19,4 +19,4 @@ const Satellite_Location_Points = ({points}) => {
   )
 }
 
-export default Satellite_Location_Points
+export default SatelliteLocationPoints
